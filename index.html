@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>NDNC</title>
+</head>
+<body>
+    <nav class="nav w-full flex">
+        <div class="navbar align">
+            <button class="nav-item text-right" href="#">Hotels</button>
+            <button class="nav-item" href="#">Restaurants</button>
+            <button class="nav-item" href="#">Attrations</button>
+        </div>   
+    </nav>
+
+    <main>
+        <div class="card bg-white">
+            <h3 class="card-header text-center">Lets Get Started</h3>
+            <form id="user-input" class="">
+
+                <label class="form-label" for="city">Enter City:</label>
+                <input name="city" id="city-input" type="text" autofocus="true" class="city-input" />
+
+                <label class="form-label" for="date">Enter Date:</label>
+                <input name="date" id="date-input" type="text" autofocus="true" class="date-input" />
+                
+                <div class="options">
+                    <input type="checkbox" id="hotels" name="hotels" value="hotels">
+                        <label for="hotels"> Hotels </label><br>
+                
+                    <input type="checkbox" id="restaurants" name="restaurants" value="restaurants">
+                        <label for="restaurants"> Restaurants </label><br>
+
+                    <input type="checkbox" id="attrations" name="attrations" value="attrations">
+                        <label for="attrations"> Attractions </label><br>
+                </div>
+
+                <button type="submit" id='submit' class="btn content-center">Lets Travel</button>
+            </form>
+        </div>
+    </main>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
