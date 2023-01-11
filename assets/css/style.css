@@ -1,0 +1,19 @@
+body {
+    background: #2C3531;
+}
+
+nav {
+    background: #116466;
+    border-bottom: 2px solid #D9B08C;
+}
+
+main {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    top: 50%;
+    left: 50%;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-50%,-50%);
+}
