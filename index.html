@@ -9,37 +9,49 @@
     <title>NDNC</title>
 </head>
 <body>
-    <nav class="nav w-full flex">
-        <div class="navbar align">
-            <button class="nav-item text-right" href="#">Hotels</button>
+    <nav class="nav w-full">
+            <img src="./assets/images/NDNC.png" alt="NDNC logo">
+            <button class="nav-item" href="#">Hotels</button>
             <button class="nav-item" href="#">Restaurants</button>
-            <button class="nav-item" href="#">Attrations</button>
-        </div>   
+            <button class="nav-item" href="#">Attractions</button>
     </nav>
 
+    <hero>
+        <video id="background-video" autoplay loop muted>
+            <source src="./assets/images/Moving-City.mp4" type="video/mp4">
+            </video>
+    </hero>
+
     <main>
-        <div class="card bg-white">
-            <h3 class="card-header text-center">Lets Get Started</h3>
+        <div class="container px-4 flex-col text-white">
+            <h2 class="card-header text-center text-2xl font-medium pt-6 py-10">Lets Get Started</h3>
+            <div>
             <form id="user-input" class="">
+                <label class="form-label text-lg" for="city">Enter City:</label>
+                <input name="city" id="city-input" type="text" autofocus="true" class="city-input border-2 rounded-xl text-black pl-2" />
 
-                <label class="form-label" for="city">Enter City:</label>
-                <input name="city" id="city-input" type="text" autofocus="true" class="city-input" />
-
-                <label class="form-label" for="date">Enter Date:</label>
-                <input name="date" id="date-input" type="text" autofocus="true" class="date-input" />
+                <div class="py-10">
+                    <label class="form-label text-lg" for="date">Select Date:</label>
+                    <input name="date" id="date-input" type="text" autofocus="true" class="date-input border-2 rounded-xl text-black pl-2" />
+                </div>
                 
-                <div class="options">
+                <div class="options p-2 justify-end">
+                    <h3 class="text-xl">Select one of the following:</h3>
                     <input type="checkbox" id="hotels" name="hotels" value="hotels">
-                        <label for="hotels"> Hotels </label><br>
-                
+                    <label for="hotels" class="text-lg"> Hotels </label><br>
+                    
                     <input type="checkbox" id="restaurants" name="restaurants" value="restaurants">
-                        <label for="restaurants"> Restaurants </label><br>
-
+                    <label for="restaurants" class="text-lg"> Restaurants </label><br>
+                    
                     <input type="checkbox" id="attrations" name="attrations" value="attrations">
-                        <label for="attrations"> Attractions </label><br>
+                    <label for="attrations" class="text-lg"> Attractions </label><br>
+                </div>  
+
+
+                <div class="text-center pt-4 py-4">
+                    <button type="submit" id='submit' class="btn px-4">Lets Travel!</button>
                 </div>
 
-                <button type="submit" id='submit' class="btn content-center">Lets Travel</button>
             </form>
         </div>
     </main>
