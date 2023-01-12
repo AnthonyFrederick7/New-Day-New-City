@@ -5,6 +5,7 @@ let $submit = document.getElementById("submit")
 let $hotels = document.getElementById("hotels");
 let $rests = document.getElementById("rests");
 let $attractions = document.getElementById("attractions");
+const $results = "./results.html";
 
 // creates click event to save search history and function to display in search bar
 let searchHistory = (localStorage.searchHistory) ? JSON.parse(localStorage.searchHistory) : [];
@@ -20,3 +21,10 @@ $cityinput.addEventListener("focus", () => {
     data.querySelector("option").innerText = search;
     });
 });
+
+// Once submit is clicked, takes you to results page
+$submit.addEventListener("click", redirectFunction);
+function redirectFunction(event) {
+    event.preventDefault()
+//Capture form input here
+window.location.replace($results)}
