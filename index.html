@@ -9,13 +9,14 @@
     <title>New Day, New City</title>
 </head>
 <body>
-    <nav class="nav flex h-fit">
-            <div class="">
-                <img src="./assets/images/NDNC.png" alt="NDNC logo">
-            </div>
+    <nav class="h-24 flex flex-wrap items-center justify-between mx-auto bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
+        <a>
+            <img src="./assets/images/NDNC.png" class=" h-9 mr-3 sm:h-9 md:h-16" alt="NDNC Logo" />
+        </a>
+    </nav>
 
     <hero>
-        <video id="background-video" autoplay loop muted>
+        <video id="background-video" playsinline autoplay loop muted>
             <source src="./assets/images/Moving-City.mp4" type="video/mp4">
             </video>
     </hero>
@@ -24,6 +25,7 @@
         <div class="container px-4 flex-col text-white sm:w-60 md:w-fit">
             <h2 class="card-header text-center text-2xl font-medium pt-6 py-10">Lets Get Started</h3>
             <div>
+            <form id="user-input" class=" text-base">
                 <form id="user-input" class="text-center text-base" method="GET" action="results.html" onsubmit="return checkboxValidation(this)">
                 <label class="form-label" for="city" >Enter City:</label>
 
@@ -35,18 +37,17 @@
                     <input name="date" id="date-input" type="date" autofocus="true" class="date-input border-2 rounded-xl text-black pl-2" required/>
                 </div>
                 
-                <div class="options p-2 justify-end">
-                    <h3 class="">Select one of the following:</h3>
+                <div class="options p-2 text-center">
+                    <h3>Select one of the following:</h3>
                     <input type="checkbox" id="hotels" name="hotels" value="hotels">
                     <label for="hotels" class="option px-1"> Hotels </label><br>
                     
-                    <input type="checkbox" id="restaurants" name="restaurants" value="restaurants">
+                    <input type="checkbox" id="rests" name="restaurants" value="restaurants">
                     <label for="restaurants" class="option px-1"> Restaurants </label><br>
                     
                     <input type="checkbox" id="attrations" name="attrations" value="attrations">
                     <label for="attrations" class="option px-1"> Attractions </label><br>
                 </div>  
-
 
                 <div class="text-center pt-4 py-6">
                     <button type="submit" id='submit' class="btn px-4">Lets Travel!</button>

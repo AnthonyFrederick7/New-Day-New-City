@@ -4,7 +4,8 @@ let $dateinput = document.getElementById("date-input");
 let $submit = document.getElementById("submit")
 let $hotels = document.getElementById("hotels");
 let $rests = document.getElementById("rests");
-let $attractions = document.getElementById("attrations");
+let $attractions = document.getElementById("attractions");
+const $results = "./results.html";
 let $options = document.querySelector(".options")
 
 // creates click event to save search history and function to display in search bar
@@ -29,6 +30,12 @@ $cityinput.addEventListener("focus", () => {
     });
 });
 
+// Once submit is clicked, takes you to results page
+$submit.addEventListener("click", redirectFunction);
+function redirectFunction(event) {
+    event.preventDefault()
+//Capture form input here
+window.location.replace($results)}
 //checkbox verification
 
 function checkboxValidation(theForm) {
