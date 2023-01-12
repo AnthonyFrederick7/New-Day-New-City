@@ -31,18 +31,16 @@ $cityinput.addEventListener("focus", () => {
 });
 
 // Once submit is clicked, takes you to results page
-$submit.addEventListener("click", redirectFunction);
-function redirectFunction(event) {
+//$submit.addEventListener("click", redirectFunction);
+//function redirectFunction(event) {
     event.preventDefault()
 //Capture form input here
-window.location.replace($results)}
-//checkbox verification
-
+//window.location.replace($results)}
 function checkboxValidation(theForm) {
     if (
     theForm.hotels.checked == false &&
     theForm.restaurants.checked == false &&
-    theForm.attrations.checked == false)
+    theForm.attractions.checked == false)
     {
 
         $options.firstElementChild.style.color = "red";
@@ -52,6 +50,8 @@ function checkboxValidation(theForm) {
         return true;
     }
 }
+//checkbox verification
+
 
 // checks todays date and sets min for date picker
 let today = new Date().toISOString().split('T')[0];
