@@ -24,15 +24,15 @@
         <div class="container px-4 flex-col text-white sm:w-60 md:w-fit">
             <h2 class="card-header text-center text-2xl font-medium pt-6 py-10">Lets Get Started</h3>
             <div>
-            <form id="user-input" class="text-center text-base">
+                <form id="user-input" class="text-center text-base" method="GET" action="results.html" onsubmit="return checkboxValidation(this)">
+                <label class="form-label" for="city" >Enter City:</label>
 
-                <label class="form-label" for="city">Enter City:</label>
-                <input name="city" id="city-input" type="text" autofocus="true" class="city-input border-2 rounded-xl text-black pl-2" list="searchdata" />
+                <input name="city" id="city-input" type="text" autofocus="true" class="city-input border-2 rounded-xl text-black pl-2" list="searchdata" required/>
                 <datalist id="searchdata"></datalist>
                 
                 <div class="py-10">
                     <label class="form-label" for="date">Select Date:</label>
-                    <input name="date" id="date-input" type="date" autofocus="true" class="date-input border-2 rounded-xl text-black pl-2" />
+                    <input name="date" id="date-input" type="date" autofocus="true" class="date-input border-2 rounded-xl text-black pl-2" required/>
                 </div>
                 
                 <div class="options p-2 justify-end">
