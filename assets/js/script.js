@@ -31,18 +31,18 @@ $cityinput.addEventListener("focus", () => {
 });
 
 // Once submit is clicked, takes you to results page
-$submit.addEventListener("click", redirectFunction);
-function redirectFunction(event) {
-    event.preventDefault()
-//Capture form input here
-window.location.replace($results)}
+// $submit.addEventListener("click", redirectFunction);
+// function redirectFunction(event) {
+//     event.preventDefault()
+// //Capture form input here
+// window.location.replace($results)}
 //checkbox verification
 
 function checkboxValidation(theForm) {
     if (
     theForm.hotels.checked == false &&
     theForm.restaurants.checked == false &&
-    theForm.attrations.checked == false)
+    theForm.attractions.checked == false)
     {
 
         $options.firstElementChild.style.color = "red";
