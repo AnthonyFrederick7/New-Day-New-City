@@ -10,9 +10,8 @@ let $options = document.querySelector(".options")
 
 // creates click event to save search history and function to display in search bar
 let searchHistory = (localStorage.searchHistory) ? JSON.parse(localStorage.searchHistory) : [];
+
 $userinput.addEventListener("submit", () => {
-
-
     if (searchHistory.indexOf($cityinput.value.toLowerCase()) == -1){
     searchHistory.push($cityinput.value.toLowerCase());
     localStorage.searchHistory = JSON.stringify(searchHistory);
@@ -21,6 +20,8 @@ $userinput.addEventListener("submit", () => {
 
 
 // listens for search box to be focused and displays previous searches
+
+
 $cityinput.addEventListener("focus", () => {
     let data = document.querySelector("datalist#searchdata");
     data.innerHTML = "";
@@ -29,6 +30,8 @@ $cityinput.addEventListener("focus", () => {
     data.querySelector("option").innerText = search;
     });
 });
+
+
 
 // Once submit is clicked, takes you to results page
 // $submit.addEventListener("click", redirectFunction);
