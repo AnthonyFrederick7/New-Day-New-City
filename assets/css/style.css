@@ -143,16 +143,20 @@ main {
   -webkit-animation: rainbow 5s infinite alternate;
 }
 
+.btn-back:hover {
+  -webkit-animation:link 3.5s infinite;
+  border-color: #000;
+}
+
 .navlink:hover {
   -webkit-animation:link 3.5s infinite;
 }
 @-webkit-keyframes link{
   0% {color: rgb(0, 144, 255);}
-  16% {color: #0000ff;}
+  16% {color: #4b30e2;}
   33% {color: rgb(135, 0, 255);}
   49% {color: #de00fb;}
   65% {color: rgb(135, 0, 255);}
-  82% {color: #0000ff;}
   100% {color: rgb(0, 144, 255);}
 }
 
@@ -163,4 +167,11 @@ main {
     padding-left: 5px;
     padding-right: 5px;
   }
+}
+
+.input-group {
+  background: linear-gradient(1deg,#000,#292929);
+  background: linear-gradient(1deg,#000,#292929);
+  border: 2px solid hsl(240,100%,50%);
+  -webkit-animation: rainbow 5s infinite alternate;
 }
