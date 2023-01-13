@@ -139,7 +139,7 @@ main {
   padding-left: 10px;
   padding-right: 10px;
   background: linear-gradient(1deg,#000,#292929);
-  border: 2px solid hsl(240,100%,50%);
+  border: 1.5px solid hsl(240,100%,50%);
   -webkit-animation: rainbow 5s infinite alternate;
 }
 
@@ -154,4 +154,13 @@ main {
   65% {color: rgb(135, 0, 255);}
   82% {color: #0000ff;}
   100% {color: rgb(0, 144, 255);}
+}
+
+@media screen and (max-width: 700px) {
+  .btn-back {
+    font-size: medium;
+    padding: 1.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
