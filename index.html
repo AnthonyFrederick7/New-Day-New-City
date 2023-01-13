@@ -7,28 +7,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>New Day, New City</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdqpDxIK96-Sorhh3EDLRMIIu-HEhtee4&libraries=places&callback=initAutocomplete" async defer></script>
 </head>
 <body>
     <nav class="h-24 flex flex-wrap items-center justify-between mx-auto bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
         <a>
-            <img src="./assets/images/NDNC.png" class="mr-3 h-16" alt="NDNC Logo" />
+            <img src="./assets/images/NDNC.png" class="mr-3 h-20" alt="NDNC Logo" />
         </a>
     </nav>
-
+    
     <hero>
         <video id="background-video" playsinline autoplay loop muted>
             <source src="./assets/images/Moving-City.mp4" type="video/mp4">
-            </video>
+        </video>
     </hero>
-
+    
     <main>
         <div class="container px-4 flex-col text-white sm:w-60 md:w-fit">
             <h2 class="card-header text-center text-2xl font-medium pt-6 py-10">Lets Get Started</h3>
-            <div>
-            
-            <form id="user-input" class="text-center text-base" method="GET" action="results.html" onsubmit="return checkboxValidation(this)">
+                <div>
+                    
+                    <form id="user-input" class="text-center text-base" method="GET" action="results.html" onsubmit="return checkboxValidation(this)">
                 <label class="form-label" for="city" >Enter City:</label>
-
+                
                 <input name="city" id="city-input" type="text" autofocus="true" class="city-input border-2 rounded-xl text-black pl-2" list="searchdata" required/>
                 <datalist id="searchdata"></datalist>
                 
@@ -48,11 +49,11 @@
                     <input type="checkbox" id="attractions" name="attractions" value="attractions">
                     <label for="attractions" class="option px-1"> Attractions </label><br>
                 </div>  
-
+                
                 <div class="text-center pt-4 py-6">
                     <button type="submit" id='submit' class="btn px-4">Lets Travel!</button>
                 </div>
-
+                
             </form>
         </div>
     </main>

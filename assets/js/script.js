@@ -15,10 +15,29 @@ $userinput.addEventListener("submit", () => {
 
     if (searchHistory.indexOf($cityinput.value.toLowerCase()) == -1){
     searchHistory.push($cityinput.value.toLowerCase());
+    if (searchHistory.length > 5) {
+        searchHistory.pop();
+    }
     localStorage.searchHistory = JSON.stringify(searchHistory);
     }
 });
 
+// Autocompletes city search by using google places (cities)
+function initAutocomplete() {
+    let autocomplete = new google.maps.places.Autocomplete(document.getElementById('city-input'),
+    {types: ['(cities)'],});
+    autocomplete.addListener('place_changed', onPlaceChanged);
+    }
+    function onPlaceChanged(){
+        var place = autocomplete.getPlace();
+
+        if (!place.geometry) {
+            document.getElementById('city-input').placeholder =
+            '';
+        } else {
+            document.getElementById('details').innerHTML = place.name;
+        }
+    }
 
 // listens for search box to be focused and displays previous searches
 $cityinput.addEventListener("focus", () => {
@@ -29,6 +48,9 @@ $cityinput.addEventListener("focus", () => {
     data.querySelector("option").innerText = search;
     });
 });
+
+
+
 
 // Once submit is clicked, takes you to results page
 // $submit.addEventListener("click", redirectFunction);
@@ -56,3 +78,5 @@ function checkboxValidation(theForm) {
 // checks todays date and sets min for date picker
 let today = new Date().toISOString().split('T')[0];
 document.getElementsByName("date")[0].setAttribute('min', today);
+
+
