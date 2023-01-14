@@ -12,9 +12,11 @@ const restaurants = criteriaArray.includes("restaurants");
 const attractions = criteriaArray.includes("attractions");
 
 // formats city and date to look better on the page
-const cityFormat = city.charAt(0).toUpperCase() + city.substring(1).split('%')[0].replace('+', ' ');
+const cityFormat = city.charAt(0).toUpperCase() + city.substring(1).toLowerCase()
 const dateArr = date.split("-");
 const dateFormat = dateArr[1] + "/" + dateArr[2]  + "/" + dateArr[0];
+
+//Displays a map of hotels in requested City 
 
 
 //Displays city and date at top of page
