@@ -12,7 +12,7 @@ const restaurants = criteriaArray.includes("restaurants");
 const attractions = criteriaArray.includes("attractions");
 
 // formats city and date to look better on the page
-const cityFormat = city.charAt(0).toUpperCase() + city.substring(1).toLowerCase()
+const cityFormat = city.charAt(0).toUpperCase() + city.substring(1).split('%')[0].replace('+', ' ');
 const dateArr = date.split("-");
 const dateFormat = dateArr[1] + "/" + dateArr[2]  + "/" + dateArr[0];
 
