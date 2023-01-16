@@ -1,4 +1,3 @@
-// const amadeusKey = dy4iaAOxWeAWElo6n02Qi5l6CusR0tV2;
 const $cityresults = document.getElementById('city-results');
 const $dateresults = document.getElementById('date-results');
 const myWeatherKey = '7c595b9c2a826cc8f93da7b893dfce75';
@@ -23,7 +22,7 @@ const restaurants = criteriaArray.includes("restaurants");
 const attractions = criteriaArray.includes("attractions");
 
 // formats city and date to look better on the page
-const cityFormat = city.charAt(0).toUpperCase() + city.substring(1).replace('+', ' ').replace('%2C+', ' ').split("%")[0];
+const cityFormat = city.charAt(0).toUpperCase() + city.substring(1).split('%')[0].replace('+', ' ');
 const dateArr = date.split("-");
 const dateFormat = dateArr[1] + "/" + dateArr[2]  + "/" + dateArr[0];
 
@@ -52,7 +51,7 @@ function initMap() {
 Use: This funtion accesses the Weather API program that translates a city name into a set of coordinates.
 weatherApiUrl: This is a variable that takes a provided string and uses it as the fetch access endpoint in the funtion.
 */
-const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer boRNsJX2esJASEbuRZURBsjO9Jmp'}};
+const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer D6UacD8BdtLkuQ74gVtF9AJZg6lM'}};
 
 const getCoords = (weatherApiUrl) => {
     fetch(weatherApiUrl)
@@ -77,7 +76,7 @@ const displayHotelsMap = () => {
 }
 
 //Displays city and date at top of page
-$cityresults.textContent = cityFormat;
+$cityresults.textContent = "the city of " + cityFormat;
 $dateresults.textContent = dateFormat;
 
 //Gets coords for the current city.
@@ -88,6 +87,3 @@ console.log("City: " + criteriaArray[1],
             "Hotel: " + hotels, 
             "Restarurants: " + restaurants,  
             "Attractions: " + attractions);
-
-fetch('https:test.api.amadeus.com/v1/reference-data/locations/hotels')
-    .then(res => res.json())

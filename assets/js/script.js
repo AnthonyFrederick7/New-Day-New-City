@@ -29,8 +29,6 @@ function initAutocomplete() {
     }
     function onPlaceChanged(){
         var place = autocomplete.getPlace();
-        var latitude = place.geometry.location.lat();
-        var longitude = place.geometry.location.lng();
 
         if (!place.geometry) {
             document.getElementById('city-input').placeholder =
@@ -39,6 +37,7 @@ function initAutocomplete() {
             document.getElementById('details').innerHTML = place.name;
         }
     }
+
 // listens for search box to be focused and displays previous searches
 
 
@@ -79,5 +78,3 @@ function checkboxValidation(theForm) {
 // checks todays date and sets min for date picker
 let today = new Date().toISOString().split('T')[0];
 document.getElementsByName("date")[0].setAttribute('min', today);
-
-
