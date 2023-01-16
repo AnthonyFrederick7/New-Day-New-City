@@ -96,5 +96,3 @@ function checkboxValidation(theForm) {
 // checks todays date and sets min for date picker
 let today = new Date().toISOString().split('T')[0];
 document.getElementsByName("date")[0].setAttribute('min', today);
-
-
