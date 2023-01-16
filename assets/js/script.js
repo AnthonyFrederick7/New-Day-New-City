@@ -29,6 +29,8 @@ function initAutocomplete() {
     }
     function onPlaceChanged(){
         var place = autocomplete.getPlace();
+        var latitude = place.geometry.location.lat();
+        var longitude = place.geometry.location.lng();
 
         if (!place.geometry) {
             document.getElementById('city-input').placeholder =
@@ -37,7 +39,6 @@ function initAutocomplete() {
             document.getElementById('details').innerHTML = place.name;
         }
     }
-
 // listens for search box to be focused and displays previous searches
 
 

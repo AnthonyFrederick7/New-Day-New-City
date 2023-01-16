@@ -1,3 +1,4 @@
+// const amadeusKey = dy4iaAOxWeAWElo6n02Qi5l6CusR0tV2;
 const $cityresults = document.getElementById('city-results');
 const $dateresults = document.getElementById('date-results');
 
@@ -12,13 +13,13 @@ const restaurants = criteriaArray.includes("restaurants");
 const attractions = criteriaArray.includes("attractions");
 
 // formats city and date to look better on the page
-const cityFormat = city.charAt(0).toUpperCase() + city.substring(1).split('%')[0].replace('+', ' ');
+const cityFormat = city.charAt(0).toUpperCase() + city.substring(1).replace('+', ' ').replace('%2C+', ' ').split("%")[0];
 const dateArr = date.split("-");
 const dateFormat = dateArr[1] + "/" + dateArr[2]  + "/" + dateArr[0];
 
 
 //Displays city and date at top of page
-$cityresults.textContent = "the city of " + cityFormat;
+$cityresults.textContent = cityFormat;
 $dateresults.textContent = dateFormat;
 
 console.log("City: " + criteriaArray[1],
@@ -27,3 +28,5 @@ console.log("City: " + criteriaArray[1],
             "Restarurants: " + restaurants,  
             "Attractions: " + attractions);
 
+fetch('https:test.api.amadeus.com/v1/reference-data/locations/hotels')
+    .then(res => res.json())
