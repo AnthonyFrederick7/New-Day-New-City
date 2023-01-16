@@ -175,3 +175,7 @@ main {
   border: 2px solid hsl(240,100%,50%);
   -webkit-animation: rainbow 5s infinite alternate;
 }
+
+#map {
+  height: 80%;
+}
