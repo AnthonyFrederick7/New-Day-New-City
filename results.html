@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/21e78bd597.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>New Day, New City</title>
 </head>
@@ -28,13 +28,13 @@
         <div class="hidden w-full md:block md:w-auto" id="navbar">
             <ul class="flex p-4 md:flex-row md:space-x-8 md:mt-0 md:text-xl md:font-semibold">
             <li>
-                <a href="#" id="hotelShortcut" class="navlink flex block my-2 ml-10 mr-4 text-white">Hotels</a>
+                <a href="#hotel-results" class="navlink flex block my-2 ml-10 mr-4 text-white">Hotels</a>
             </li>
             <li>
-                <a href="#" id="restsShortcut" class="navlink flex block my-2 ml-10 mr-4 text-white">Restaurants</a>
+                <a href="#rests-results" class="navlink flex block my-2 ml-10 mr-4 text-white">Restaurants</a>
             </li>
             <li>
-                <a href="#" id="attractionsShortcut" class="navlink flex block my-2 ml-10 mr-10 text-white">Attractions</a>
+                <a href="#attractions-results" class="navlink flex block my-2 ml-10 mr-10 text-white">Attractions</a>
             </li>
             </ul>
         </div>
@@ -45,16 +45,16 @@
         <h3>Showing results for <span id="city-results"></span> on <span id="date-results"></span></h3>
     </div>
 
-    <main class="flex-1 grid grid-cols-1 gap-4 md:grid-cols-3 md: gap-6 grid-flow-col text-white">
-
-        <div id="hotel-results"class="input-group md:col-span-2">hotel</div>
-
-        <div id="rests-results" class="input-group md:col-span-2">rest</div>
-
-        <div id="attractions-results" class="input-group md:col-span-2">attr</div>
-
-        <div id="map-results" class="input-group md:col-span-1">map</div>
-
+        <div class="w-screen pt-10 text-center px-4 gap-y-4  grid-cols-1 gap-x-20 md:px-10 md:grid grid-cols-3 text-white">
+            <div id="hotel-results" class="input-group mb-4 pb-48 p-2 md:col-span-2 md:mb-0">Hotel</div>
+            <div id="map-results" class="input-group mb-4 p-2 md:col-span-1 md:mb-0">Map <div id="map"></div></div>
+            
+            
+            <div id="rests-results" class="input-group mb-4 p-2 pb-48 md:col-span-3 text-white md:mb-0">Restaurants</div>
+            
+            <div id="attractions-results" class="input-group mb-4 pb-48 p-2 md:col-span-3 text-white md:mb-0">Attractions</div>
+    </div>
     </main>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdqpDxIK96-Sorhh3EDLRMIIu-HEhtee4&libraries=places"></script>
     <script src="./assets/js/results.js"></script>
 </body>
