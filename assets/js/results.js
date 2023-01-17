@@ -38,15 +38,16 @@ const dateFormat = dateArr[1] + "/" + dateArr[2]  + "/" + dateArr[0];
 //Displays a map of hotels in requested City 
 function initMap() {
     console.log(nearbyHotels);
+    
     //map options
     let options = {
       zoom: 10,
       center: {lat: nearbyHotels[0].geoCode.latitude, lng: nearbyHotels[0].geoCode.longitude}
     }
-  
+    
     // New map
     let map = new google.maps.Map(document.getElementById('map'), options);
-  
+    
     //Add Marker
     for(let i = 0; i<nearbyHotels.length; i++){
         let marker = new google.maps.Marker({
@@ -82,13 +83,13 @@ const getCoords = (weatherApiUrl) => {
     .then(function (response){
         return response.json();
     }).then(function(data) {
-        lat = data[0].lat;
-        lng = data[0].lon;
-        displayHotelsMap();
+      lat = data[0].lat;
+      lng = data[0].lon;
+      displayHotelsMap();
     })
-}
-
-const displayHotelsMap = () => {
+  }
+  
+  const displayHotelsMap = () => {
     fetch(`https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-geocode?latitude=${lat}&longitude=${lng}&radius=5&radiusUnit=KM&hotelSource=ALL`, options)
           .then(response => response.json())
           .then(function(response) {
