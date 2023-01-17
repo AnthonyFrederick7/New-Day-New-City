@@ -51,16 +51,31 @@ function initMap() {
     for(let i = 0; i<nearbyHotels.length; i++){
         let marker = new google.maps.Marker({
           position:{lat:nearbyHotels[i].geoCode.latitude, lng:nearbyHotels[i].geoCode.longitude},
-          map:map
+          map:map,
+          title: `${nearbyHotels[i].name}`,
+          //click: () => {}
         });
+        // var infoWindow = new google.maps.InfoWindow({
+        //     content: `<h1>${nearbyHotels[i].name}</h1>`
+        // });
+        // marker.addListener('click', () => {
+        //     infoWindow.open(map, marker);
+        // });
     }
+}
+const displayHotelNames = () => {
+    $hotelresults.appendChild(document.createElement('ul'));
+    for(let i = 0; i < nearbyHotels.length; i++){
+        $hotelresults.firstElementChild.appendChild(document.createElement('li')).textContent = `${nearbyHotels[i].name}`;
+    }
+    $hotelresults.firstElementChild.style = "font-size: 2em; color: #256466"
 }
 
 /* getCoords(weatherApiUrl)
 Use: This funtion accesses the Weather API program that translates a city name into a set of coordinates.
 weatherApiUrl: This is a variable that takes a provided string and uses it as the fetch access endpoint in the funtion.
 */
-const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer D6UacD8BdtLkuQ74gVtF9AJZg6lM'}};
+const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer ex3Oy1GhrF4lfjysl1StH2tTfknN'}};
 
 const getCoords = (weatherApiUrl) => {
     fetch(weatherApiUrl)
@@ -80,6 +95,7 @@ const displayHotelsMap = () => {
             console.log(response.data);
             nearbyHotels = response.data;
             window.initMap = initMap();
+            displayHotelNames();
           })
           .catch(err => console.error(err));
 }
