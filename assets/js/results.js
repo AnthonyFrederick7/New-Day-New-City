@@ -50,24 +50,38 @@ function initMap() {
     
     //Add Marker
     for(let i = 0; i<nearbyHotels.length; i++){
-      let marker = new google.maps.Marker({
-        position:{lat:nearbyHotels[i].geoCode.latitude, lng:nearbyHotels[i].geoCode.longitude},
-        map:map
-      });
+        let marker = new google.maps.Marker({
+          position:{lat:nearbyHotels[i].geoCode.latitude, lng:nearbyHotels[i].geoCode.longitude},
+          map:map,
+          title: `${nearbyHotels[i].name}`,
+          //click: () => {}
+        });
+        // var infoWindow = new google.maps.InfoWindow({
+        //     content: `<h1>${nearbyHotels[i].name}</h1>`
+        // });
+        // marker.addListener('click', () => {
+        //     infoWindow.open(map, marker);
+        // });
     }
-  }
-  
-  const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer 3iS5f2nQELhB1d4AfqsN64iBgH84'}};
-  
-  /* getCoords(weatherApiUrl)
-  Use: This funtion accesses the Weather API program that translates a city name into a set of coordinates.
-  weatherApiUrl: This is a variable that takes a provided string and uses it as the fetch access endpoint in the funtion.
-  */
- 
- const getCoords = (weatherApiUrl) => {
-   fetch(weatherApiUrl)
-   .then(function (response){
-     return response.json();
+}
+const displayHotelNames = () => {
+    $hotelresults.appendChild(document.createElement('ul'));
+    for(let i = 0; i < nearbyHotels.length; i++){
+        $hotelresults.firstElementChild.appendChild(document.createElement('li')).textContent = `${nearbyHotels[i].name}`;
+    }
+    $hotelresults.firstElementChild.style = "font-size: 2em; color: #256466"
+}
+
+/* getCoords(weatherApiUrl)
+Use: This funtion accesses the Weather API program that translates a city name into a set of coordinates.
+weatherApiUrl: This is a variable that takes a provided string and uses it as the fetch access endpoint in the funtion.
+*/
+const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer ex3Oy1GhrF4lfjysl1StH2tTfknN'}};
+
+const getCoords = (weatherApiUrl) => {
+    fetch(weatherApiUrl)
+    .then(function (response){
+        return response.json();
     }).then(function(data) {
       lat = data[0].lat;
       lng = data[0].lon;
@@ -77,15 +91,16 @@ function initMap() {
   
   const displayHotelsMap = () => {
     fetch(`https://test.api.amadeus.com/v1/reference-data/locations/hotels/by-geocode?latitude=${lat}&longitude=${lng}&radius=5&radiusUnit=KM&hotelSource=ALL`, options)
-    .then(response => response.json())
-    .then(function(response) {
-      console.log(response.data);
-      nearbyHotels = response.data;
-      window.initMap = initMap();
-    })
-    .catch(err => console.error(err));
-  }
-  
+          .then(response => response.json())
+          .then(function(response) {
+            console.log(response.data);
+            nearbyHotels = response.data;
+            window.initMap = initMap();
+            displayHotelNames();
+          })
+          .catch(err => console.error(err));
+}
+
 //Displays city and date at top of page
 $cityresults.textContent = "the city of " + cityFormat;
 $dateresults.textContent = dateFormat;
