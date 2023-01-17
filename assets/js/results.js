@@ -51,7 +51,7 @@ function initMap() {
 Use: This funtion accesses the Weather API program that translates a city name into a set of coordinates.
 weatherApiUrl: This is a variable that takes a provided string and uses it as the fetch access endpoint in the funtion.
 */
-const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer boRNsJX2esJASEbuRZURBsjO9Jmp'}};
+const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer nKHjutnWJJJgaAKGeWzZKcGFKfAe'}};
 
 const getCoords = (weatherApiUrl) => {
     fetch(weatherApiUrl)
