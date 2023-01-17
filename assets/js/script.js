@@ -34,21 +34,39 @@ function initAutocomplete() {
             document.getElementById('city-input').placeholder =
             '';
         } else {
+
             document.getElementById('details').innerHTML = place.name;
+
         }
     }
 
 // listens for search box to be focused and displays previous searches
 
 
-$cityinput.addEventListener("focus", () => {
+$cityinput.addEventListener("focus", function showHistory() {
+
     let data = document.querySelector("datalist#searchdata");
     data.innerHTML = "";
     searchHistory.forEach((search) => {
     data.innerHTML = "<option>" + data.innerHTML;
     data.querySelector("option").innerText = search;
+
+
     });
+
+
 });
+
+function hideList(input) {
+    let data = document.querySelector("datalist#searchdata");
+	if (input.value) {
+		data.id = "";    		
+	} else {
+		data.id = "searchdata";
+	}
+}
+
+
 
 
 
@@ -78,5 +96,3 @@ function checkboxValidation(theForm) {
 // checks todays date and sets min for date picker
 let today = new Date().toISOString().split('T')[0];
 document.getElementsByName("date")[0].setAttribute('min', today);
-
-
