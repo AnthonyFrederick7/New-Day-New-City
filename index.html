@@ -30,7 +30,7 @@
                     <form id="user-input" class="text-center text-base" method="GET" action="results.html" onsubmit="return checkboxValidation(this)">
                 <label class="form-label" for="city" >Enter City:</label>
                 
-                <input name="city" id="city-input" type="text" autofocus="true" class="city-input border-2 rounded-xl text-black pl-2" list="searchdata" required/>
+                <input name="city" id="city-input" type="text" autofocus="true"  class="city-input border-2 rounded-xl text-black pl-2" list="searchdata" oninput="hideList(this)" required/>
                 <datalist id="searchdata"></datalist>
                 
                 <div class="py-10">

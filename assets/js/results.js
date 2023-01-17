@@ -1,5 +1,12 @@
 const $cityresults = document.getElementById('city-results');
 const $dateresults = document.getElementById('date-results');
+const $hotelresults = document.getElementById('hotel-results');
+const $restsresults = document.getElementById('rests-results');
+const $attractionsresults = document.getElementById('attractions-results');
+const $hotelsShortcut = document.getElementById('hotelsShortcut');
+const $restsShortcut = document.getElementById('restsShortcut');
+const $attractionsShortcut = document.getElementById('attractionsShortcut');
+
 const myWeatherKey = '7c595b9c2a826cc8f93da7b893dfce75';
 
 // Gets URL data and puts it into an array
@@ -22,6 +29,8 @@ const restaurants = criteriaArray.includes("restaurants");
 const attractions = criteriaArray.includes("attractions");
 
 // formats city and date to look better on the page
+
+
 const cityFormat = city.charAt(0).toUpperCase() + city.substring(1).split('%')[0].replace('+', ' ');
 const dateArr = date.split("-");
 const dateFormat = dateArr[1] + "/" + dateArr[2]  + "/" + dateArr[0];
@@ -79,6 +88,19 @@ const displayHotelsMap = () => {
 $cityresults.textContent = "the city of " + cityFormat;
 $dateresults.textContent = dateFormat;
 
+// Hides divs and nav links for any options that weren't selected on form
+if (hotels === false){
+    $hotelresults.style.display = "none";
+    $hotelsShortcut.style.display = "none";
+}
+if (restaurants=== false){
+    $restsresults.style.display = "none";
+    $restsShortcut.style.display = "none";
+}
+if (attractions === false){
+    $attractionsresults.style.display = "none";
+    $attractionsShortcut.style.display = "none";
+}
 //Gets coords for the current city.
 getCoords(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${myWeatherKey}`)
 
