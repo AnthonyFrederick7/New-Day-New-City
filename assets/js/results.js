@@ -68,13 +68,14 @@ const displayHotelNames = () => {
     for(let i = 0; i < nearbyHotels.length; i++){
         $hotelresults.firstElementChild.appendChild(document.createElement('li')).textContent = `${nearbyHotels[i].name}`;
     }
+    $hotelresults.firstElementChild.style = "font-size: 2em; color: #256466"
 }
 
 /* getCoords(weatherApiUrl)
 Use: This funtion accesses the Weather API program that translates a city name into a set of coordinates.
 weatherApiUrl: This is a variable that takes a provided string and uses it as the fetch access endpoint in the funtion.
 */
-const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer iGaUunizhkopsA6G1DFuRAV90OEu'}};
+const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer ex3Oy1GhrF4lfjysl1StH2tTfknN'}};
 
 const getCoords = (weatherApiUrl) => {
     fetch(weatherApiUrl)
