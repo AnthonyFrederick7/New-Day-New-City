@@ -105,6 +105,10 @@ const getCoords = (weatherApiUrl) => {
 $cityresults.textContent = "the city of " + cityFormat;
 $dateresults.textContent = dateFormat;
 
+//Displays text for restaurants and attractions showing they are coming soon
+
+$restsresults.textContent = "Restaurant results coming soon!" 
+$attractionsresults.textContent = "Attraction results coming soon!"
 // Hides divs and nav links for any options that weren't selected on form
 if (hotels === false){
     $hotelresults.style.display = "none";

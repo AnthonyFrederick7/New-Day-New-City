@@ -58,13 +58,20 @@ $cityinput.addEventListener("focus", function showHistory() {
 });
 
 function hideList(input) {
-    let data = document.querySelector("datalist#searchdata");
+    let data = document.querySelector("datalist");
 	if (input.value) {
-		data.id = "";    		
+		data.id = "nodata";   
+		
 	} else {
 		data.id = "searchdata";
+
 	}
 }
+
+// function will tell user this checkbox is required if they try to uncheck
+
+
+
 
 
 
