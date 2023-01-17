@@ -170,6 +170,7 @@ border-color: #000;
 }
 
 .input-group {
+  display: block;
 background: linear-gradient(1deg,#000,#292929);
 background: linear-gradient(1deg,#000,#292929);
 border: 2px solid hsl(240,100%,50%);
@@ -177,5 +178,5 @@ border: 2px solid hsl(240,100%,50%);
 }
 
 #map {
-height: 80%;
+height: 100%;
 }
