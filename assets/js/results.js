@@ -60,7 +60,7 @@ function initMap() {
 Use: This funtion accesses the Weather API program that translates a city name into a set of coordinates.
 weatherApiUrl: This is a variable that takes a provided string and uses it as the fetch access endpoint in the funtion.
 */
-const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer D6UacD8BdtLkuQ74gVtF9AJZg6lM'}};
+const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer '}};
 
 const getCoords = (weatherApiUrl) => {
     fetch(weatherApiUrl)
@@ -88,6 +88,10 @@ const displayHotelsMap = () => {
 $cityresults.textContent = "the city of " + cityFormat;
 $dateresults.textContent = dateFormat;
 
+//Displays text for restaurants and attractions showing they are coming soon
+
+$restsresults.textContent = "Restaurant results coming soon!" 
+$attractionsresults.textContent = "Attraction results coming soon!"
 // Hides divs and nav links for any options that weren't selected on form
 if (hotels === false){
     $hotelresults.style.display = "none";
