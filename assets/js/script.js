@@ -68,6 +68,11 @@ function hideList(input) {
 	}
 }
 
+// function will tell user this checkbox is required if they try to uncheck
+
+
+
+
 
 
 
