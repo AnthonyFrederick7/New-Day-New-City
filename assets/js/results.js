@@ -1,5 +1,6 @@
 const $cityresults = document.getElementById('city-results');
 const $dateresults = document.getElementById('date-results');
+const $hotelresults = document.getElementById('hotel-results');
 const myWeatherKey = '7c595b9c2a826cc8f93da7b893dfce75';
 
 // Gets URL data and puts it into an array
@@ -42,8 +43,22 @@ function initMap() {
     for(let i = 0; i<nearbyHotels.length; i++){
         let marker = new google.maps.Marker({
           position:{lat:nearbyHotels[i].geoCode.latitude, lng:nearbyHotels[i].geoCode.longitude},
-          map:map
+          map:map,
+          title: `${nearbyHotels[i].name}`,
+          //click: () => {}
         });
+        // var infoWindow = new google.maps.InfoWindow({
+        //     content: `<h1>${nearbyHotels[i].name}</h1>`
+        // });
+        // marker.addListener('click', () => {
+        //     infoWindow.open(map, marker);
+        // });
+    }
+}
+const displayHotelNames = () => {
+    $hotelresults.appendChild(document.createElement('ul'));
+    for(let i = 0; i < nearbyHotels.length; i++){
+        $hotelresults.firstElementChild.appendChild(document.createElement('li')).textContent = `${nearbyHotels[i].name}`;
     }
 }
 
@@ -51,7 +66,7 @@ function initMap() {
 Use: This funtion accesses the Weather API program that translates a city name into a set of coordinates.
 weatherApiUrl: This is a variable that takes a provided string and uses it as the fetch access endpoint in the funtion.
 */
-const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer nKHjutnWJJJgaAKGeWzZKcGFKfAe'}};
+const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer iGaUunizhkopsA6G1DFuRAV90OEu'}};
 
 const getCoords = (weatherApiUrl) => {
     fetch(weatherApiUrl)
@@ -71,6 +86,7 @@ const displayHotelsMap = () => {
             console.log(response.data);
             nearbyHotels = response.data;
             window.initMap = initMap();
+            displayHotelNames();
           })
           .catch(err => console.error(err));
 }
