@@ -68,14 +68,16 @@ const displayHotelNames = () => {
     for(let i = 0; i < nearbyHotels.length; i++){
         $hotelresults.firstElementChild.appendChild(document.createElement('li')).textContent = `${nearbyHotels[i].name}`;
     }
-    $hotelresults.firstElementChild.style = "font-size: 2em; color: #256466"
+    $hotelresults.firstElementChild.style = "font-size: 2em; color: #ffffff"
 }
+
+
 
 /* getCoords(weatherApiUrl)
 Use: This funtion accesses the Weather API program that translates a city name into a set of coordinates.
 weatherApiUrl: This is a variable that takes a provided string and uses it as the fetch access endpoint in the funtion.
 */
-const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer ex3Oy1GhrF4lfjysl1StH2tTfknN'}};
+const options = {method: 'GET', headers: {'accept': 'application/json', 'Authorization': 'Bearer eU3qcOR8triJu545Pe9vIOuEkaAG'}};
 
 const getCoords = (weatherApiUrl) => {
     fetch(weatherApiUrl)
@@ -96,6 +98,11 @@ const displayHotelsMap = () => {
             nearbyHotels = response.data;
             window.initMap = initMap();
             displayHotelNames();
+            fetch(`https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=${nearbyHotels[3].hotelId}`, options)
+            .then(response => response.json())
+            .then(function(response) {
+                console.log(response);
+            })
           })
           .catch(err => console.error(err));
 }
